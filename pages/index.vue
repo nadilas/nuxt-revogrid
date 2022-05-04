@@ -8,24 +8,16 @@
       flex-dir="column"
       justify-content="center"
     >
-      <CHeading text-align="center" mb="4">
-        ⚡️ Hello chakra-ui/vue
-      </CHeading>
+      <CHeading text-align="center" mb="4"> ⚡️ Hello chakra-ui/vue </CHeading>
       <CFlex justify="center" direction="column" align="center">
         <CBox mb="3">
           <CIconButton
             mr="3"
             :icon="colorMode === 'light' ? 'moon' : 'sun'"
-            :aria-label="`Switch to ${
-              colorMode === 'light' ? 'dark' : 'light'
-            } mode`"
+            :aria-label="`Switch to ${colorMode === 'light' ? 'dark' : 'light'} mode`"
             @click="toggleColorMode"
           />
-          <CButton
-            left-icon="info"
-            variant-color="blue"
-            @click="showToast"
-          >
+          <CButton left-icon="info" variant-color="blue" @click="showToast">
             Show Toast
           </CButton>
         </CBox>
@@ -55,12 +47,7 @@
             <CAvatarBadge size="1.0em" border-color="papayawhip" bg="tomato" />
           </CAvatar>
         </CAvatarGroup>
-        <CButton
-          left-icon="close"
-          variant-color="red"
-          mt="3"
-          @click="showModal = true"
-        >
+        <CButton left-icon="close" variant-color="red" mt="3" @click="showModal = true">
           Delete Account
         </CButton>
         <CModal :is-open="showModal">
@@ -69,14 +56,8 @@
             <CModalHeader>Are you sure?</CModalHeader>
             <CModalBody>Deleting user cannot be undone</CModalBody>
             <CModalFooter>
-              <CButton @click="showModal = false">
-                Cancel
-              </CButton>
-              <CButton
-                margin-left="3"
-                variant-color="red"
-                @click="showModal = false"
-              >
+              <CButton @click="showModal = false"> Cancel </CButton>
+              <CButton margin-left="3" variant-color="red" @click="showModal = false">
                 Delete User
               </CButton>
             </CModalFooter>
@@ -85,10 +66,11 @@
         </CModal>
         <client-only placeholder="Loading...">
           <vue-data-grid
-          style="height: 200px; width: 100vw"
-                theme="compact"
-                :source="rows"
-                :columns="columns" />
+            style="height: 200px; width: 100vw"
+            theme="compact"
+            :source="rows"
+            :columns="columns"
+          />
         </client-only>
       </CFlex>
     </CBox>
@@ -113,6 +95,8 @@ import {
   CFlex,
   CHeading
 } from '@chakra-ui/vue'
+import { VGridVueTemplate } from "@revolist/vue-datagrid";
+
 
 export default {
   name: 'IndexPage',
@@ -147,7 +131,7 @@ export default {
           color: 'gray.900'
         }
       },
-      columns: [{ prop: "name" }, { prop: "details" }],
+      columns: [{ name: "Name", prop: "name" }, { name: 'Details', prop: "details" }],
       rows: [{
         name: "1",
         details: "Item 1",
